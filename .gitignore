@@ -1,0 +1,9 @@
+.project
+.classes
+.settings
+.classpath
+target
+.idea
+*.iml
+catalina.base*
+logs
