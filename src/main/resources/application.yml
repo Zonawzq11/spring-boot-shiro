@@ -19,5 +19,11 @@ spring:
             dialect: org.hibernate.dialect.MySQL5Dialect
 
     thymeleaf:
+       prefix: classpath:/templates/
+       suffix: .html
        cache: false
-       mode: LEGACYHTML5
+       mode: HTML5
+       content-type: text/html
+       encoding: UTF-8
+    mvc:
+      static-path-pattern: /adminStyle/**
