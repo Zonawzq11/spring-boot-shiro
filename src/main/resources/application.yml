@@ -17,7 +17,8 @@ spring:
       properties:
          hibernate:
             dialect: org.hibernate.dialect.MySQL5Dialect
-
+    jackson:
+      serialization: true
     thymeleaf:
        prefix: classpath:/templates/
        suffix: .html
@@ -26,4 +27,4 @@ spring:
        content-type: text/html
        encoding: UTF-8
     mvc:
-      static-path-pattern: /adminStyle/**
+      static-path-pattern: /static/**

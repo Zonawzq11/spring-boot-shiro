@@ -18,7 +18,7 @@ public class SysRole {
 
     // 用户 - 角色关系定义;
     @ManyToMany
-    @JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="uid")})
+    @JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="userId")})
     private List<UserInfo> userInfos;// 一个角色对应多个用户
 
     public Integer getId() {

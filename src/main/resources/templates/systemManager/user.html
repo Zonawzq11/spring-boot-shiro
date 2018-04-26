@@ -1,0 +1,123 @@
+    <style>
+        .form-control {
+            display:inline;
+            width: 13%;
+        }
+    </style>
+    <div class="container">
+        <form role="form" action="/">
+            <div class="form-group">
+                <label for="name">名称</label>
+                <input type="text" class="form-control" id="name"
+                       placeholder="请输入名称" width="10%"/>
+                <button type="submit" class="btn btn-default">提交</button>
+            </div>
+
+        </form>
+    <table class="table table-bordered">
+        <caption>用户信息表</caption>
+        <thead>
+            <tr>
+                <th>
+                    编号
+                </th>
+                <th>
+                    产品
+                </th>
+                <th>
+                    交付时间
+                </th>
+                <th>
+                    状态
+                </th>
+            </tr>
+        </thead>
+            <tbody >
+            <tr th:each="user:${userInfoList.content}">
+                <td th:text="${user.name}">
+                    1
+                </td>
+                <td th:text="${user.username}">
+                    TB - Monthly
+                </td>
+                <td th:text="*{user.password}">
+                    01/04/2012
+                </td>
+                <td>
+                    Default
+                </td>
+            </tr>
+            <tr class="">
+                <td>
+                    1
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    01/04/2012
+                </td>
+                <td>
+                    Approved
+                </td>
+            </tr>
+            <tr class="">
+                <td>
+                    1
+                </td>
+                <td>
+                    TB - Monthly
+                </td>
+                <td>
+                    02/04/2012
+                </td>
+                <td>
+                    Approved
+                </td>
+            </tr>
+            </tbody>
+    </table>
+    </div>
+    <div id="jpager"></div><!-- 渲染 -->
+    <script type="text/javascript">
+        var param = "";
+        $(function() {
+            var totalPage = "0";
+            var totalRecords = "2";
+            var pageSize = "${userInfoList.pageable.size}";
+
+            var pageNum = parseInt("${userInfoList.pageable.page}") + 1;
+            //初始化分页控件
+            //有些参数是可选的，比如lang，若不传有默认值
+            kkpager.init({
+                pno: pageNum,
+                //总页码
+                total: "1",
+                //总数据条数
+                totalRecords: totalRecords,
+                //链接前部
+                hrefFormer: '${ctx}/DataTable/home_list',
+                //链接尾部
+                hrefLatter: '',
+                getLink: function(n) {
+                    return getInitParam() + "&pageNum=" + n + "&pageSize=" + pageSize;
+                },
+                lang: {
+                    prePageText: '上一页',
+                    nextPageText: '下一页',
+                    totalPageBeforeText: '共',
+                    totalPageAfterText: '页',
+                    totalRecordsAfterText: '条数据',
+                    gopageBeforeText: '转到',
+                    gopageButtonOkText: '确定',
+                    gopageAfterText: '页',
+                    buttonTipBeforeText: '第',
+                    buttonTipAfterText: '页'
+                }
+            });
+            //生成
+            kkpager.generPageHtml();
+
+            $('#mykkpagerselect').val(pageSize);
+        });
+    </script>
