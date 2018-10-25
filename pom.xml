@@ -6,7 +6,7 @@
 	<groupId>com.neo</groupId>
 	<artifactId>spring-boot-shiro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>spring-boot-shiro</name>
 	<description>Demo project for Spring Boot</description>
